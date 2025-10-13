@@ -8,6 +8,7 @@ public class Game_Handle : MonoBehaviour
     [Header("Main Object")]
     public Carrot.Carrot carrot;
     public GameObject obj_main;
+    public IronSourceAds ads;
     public Animator anim_cam;
     public Background_Handle bk;
     public Death death_left;
@@ -111,7 +112,7 @@ public class Game_Handle : MonoBehaviour
         this.panel_gameover.SetActive(false);
         this.bk.stop();
         this.carrot.game.set_list_button_gamepad_console(this.list_btn_main);
-        this.carrot.ads.show_ads_Interstitial();
+        ads.show_ads_Interstitial();
     }
 
     public void show_game_over()
@@ -144,7 +145,7 @@ public class Game_Handle : MonoBehaviour
         this.panel_main.SetActive(false);
         this.panel_play.SetActive(false);
         this.carrot.game.set_list_button_gamepad_console(this.list_btn_gameover);
-        this.carrot.ads.show_ads_Interstitial();
+        ads.show_ads_Interstitial();
         this.carrot.play_vibrate();
     }
 
@@ -158,7 +159,7 @@ public class Game_Handle : MonoBehaviour
         Carrot_Box box_setting=this.carrot.Create_Setting();
         box_setting.update_gamepad_cosonle_control();
         box_setting.set_act_before_closing(this.act_after_close_setting);
-        this.carrot.ads.show_ads_Interstitial();
+        ads.show_ads_Interstitial();
     }
 
     public void act_after_close_setting(List<string> item_change)
